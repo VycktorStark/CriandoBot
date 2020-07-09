@@ -49,8 +49,9 @@ Precisamos criar uma função para fazer essa conversação para gente sem a nec
 
 Vamos lá, precisamos primeiro definir uma lib para trabalharmos, vou usar a lib `requests` do python, por experiencia eu vou trabalhar com class porque acho melhor para desenvolver o que preciso, mas você pode criar funções, como disse na introdução o objetivo desse projeto não é programação, prosseguindo:
 
-Primeiro instalarmos a lib em nosso terminal, então abrar o terminal e execute:`sudo pip3 install requests`, logo em seguida abra um editor de texto e digite: 
-```python3
+Primeiro instalarmos a lib em nosso terminal, então abrar o terminal e execute:`sudo pip3 install requests`, logo em seguida abra um editor de texto e digite:
+
+```python
 import requests
 def sendRequest(url, params=None, headers=None, files=False, post=False):
 	try:
@@ -58,10 +59,12 @@ def sendRequest(url, params=None, headers=None, files=False, post=False):
 	except Exception as error:
 		print(error)
 ```
+
 Nessa função acima estamos tratando apenas a utilização da lib `requests`, com essa função já conseguimos executar requisições em qualquer HTTP, mas o objetivo é trabalhar com a API-TELEGRAM-BOT, ou seja, precisa inserir dados para comunicarmos com ela, o que precisamos para isso?
 
-Sabemos que a API obrigatoriamente precisa que informarmos sempre a token do bot e que ela suporta quatro maneiras de passar parâmetros para os métodos, sendo: 
-```
+Sabemos que a API obrigatoriamente precisa que informarmos sempre a token do bot e que ela suporta quatro maneiras de passar parâmetros para os métodos, sendo:
+
+```Plain Text
     String de consulta da URL (que fizemos logo acima pelo navegador)
     application/x-www-form-urlencoded
     application/json (não é recomendado usar para fazer upload de arquivos)
@@ -70,7 +73,7 @@ Sabemos que a API obrigatoriamente precisa que informarmos sempre a token do bot
 
 Com base nisso, precisamos definir a token do bot, os cabeçalhos (headers) para passarmos parâmetros para os métodos e por fim uma maneira de usar a função `sendRequest`, estou deixando abaixo a solução que fiz para isso com comentario.
 
-```python3
+```python
 import os, requests, json
 class Method():
 	"""
@@ -126,22 +129,29 @@ class Method():
 			
 			return self.sendRequest(f"{self.apitelegram}/{method}", params=locals()['args'], headers=self.headers)
 ```
-Não vou entrar em muitos detalhes, pois deixei o codigo muito bem comentado, mas quero que você entenda como usar o código acima, então estou deixando alguns exemplos abaixo sobre como usá-lo
+Não vou entrar em muitos detalhes, pois não é o objetivo desta aula, porém eu quero que você entenda como o funcionamento do código acima, então estou deixando alguns exemplos abaixo sobre como usá-lo
 
-Primeiro oriento a salvá-lo como `method.py`, logo em seguida apenas para teste, abra seu terminal, navegue até a pasta em que o arquivo foi salvo e execute: `python3`, agora agora siga o exemplo abaixo (Nota: você precisa definir sua token no local informado).
+Orientações recomendadas:
+- *Defina sua token do bot no local informado dentro do código e  salve o arquivo como:* `method.py`:
+- *Abra seu terminal e navegue até a pasta em que o arquivo foi salvo e execute:* `python3`;
+- *Siga os exemplos abaixo para executar os testes:*
 
-```
-Exemplo de como usar:
-from name_file import Method
-api = Method()
+
+Primeiro exemplo, enviando string (objetos que contém uma cadeia de caracteres):
+
+```python
+import Method
+api = Method.Method()
 api.sendTG(method="getME")
 api.sendTG(chat_id=438131290,text='oi')
 api.sendTG(method="sendPhoto", chat_id=438131290, photo="https://img.olhardigital.com.br/uploads/acervo_imagens/2020/04/r4x3/20200423030657_660_495_-_python.jpg", caption='<b>ping</b>', parse_mode='HTML')
+```
 
-Outro exemplo:
-from name_file import Method
-import os, gtts
-api = Method()
+Segundo exemplo, enviando algum tipo de arquivo:
+
+```python
+import os, gtts, Method
+api = Method.Method()
 try:
 	AUDIO = gtts.gTTS(cmd[1], lang="en")
 	AUDIO.save('audio.ogg')
@@ -154,7 +164,6 @@ finally:
 	os.remove('audio.ogg')
 ```
 
+Chegamos no fim desta aula, entendemos nessa aula como uma API funciona e como conversar com ela, aplicando isso no nosso objetivo.
 
-Pronto!!!! chegamos no fim desta aula, entendemos como uma API funciona e como conversar com ela, aplicando isso no nosso objetivo.
-
-Estarei deixando o arquivo criado nessa aula na pasta: **Projeto**, pois usaremos muito esse arquivo daqui para frente.
+Estarei deixando o arquivo que foi criado nessa aula na pasta: **Projeto**, pois usaremos muito esse arquivo daqui para frente.

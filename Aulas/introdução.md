@@ -1,6 +1,6 @@
 # Introdução
 
-Este projeto visa levar conhecimento aos usuários que estão começando a criar seu primeiro robô para o telegram, pretendo utilizar o minimo de codigos prontos para podemos entender como realmente é criar o projeto do zero.
+Este projeto visa levar conhecimento aos usuários que estão começando a criar seu primeiro bot para o telegram, pretendo utilizar o minimo de códigos prontos para podemos entender como realmente é criar o projeto do zero.
 
 ### O Que é um bot?
 
@@ -19,4 +19,4 @@ Primeiro, precisamos entender como a [api para bots do telegram](https://core.te
 
 E o mais importante, possuir uma token bot, caso não tenha precisará criar usando o [@BotFather](https://t.me/BotFather), caso tenha dúvida de como criar veja informações relacionadas sobre isso na página de [Perguntas frequentes sobre robôs](https://core.telegram.org/bots/faq#what-messages-will-my-bot-get).
 
-Nota: Usarei python3 para este projeto, pois é uma linguagem fácil e provavelmente não causará dificuldades no desenvolvimento de um bot, enfatizo que o objetivo deste projeto não é ensinar programação, mas ensinar como desenvolver um bot sem usar um Frameworks/SDK/Wrapper pronto para o Telegram. Neste projeto, você entenderá toda a teoria por trás do processo de criação.
+Nota: Usarei python3 algumas vezes este projeto, pois é uma linguagem fácil e provavelmente não causará dificuldades no desenvolvimento de algum bot, enfatizo que o objetivo deste projeto não é ensinar programação, e sim, ensinar como desenvolver um bot sem usar um Frameworks/SDK/Wrapper feitas para o Telegram. Neste projeto, você entenderá toda a teoria por trás do processo de criação.
