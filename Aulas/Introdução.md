@@ -1,6 +1,6 @@
 # Introdução
 
-Este projeto visa levar conhecimento aos usuários que estão começando a criar seu primeiro bot para o telegram, pretendo utilizar o minimo de códigos prontos para podemos entender como realmente é criar o projeto do zero.
+Este projeto visa levar conhecimento aos usuários que estão começando a criar seu primeiro bot para o telegram, pretendo utilizar o mínimo de códigos prontos para podemos entender como realmente é criar o projeto do zero.
 
 ### O Que é um bot?
 

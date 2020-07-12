@@ -6,25 +6,23 @@ class Method():
 	sem a necessidade de escrever muito código ou usar uma Frameworks/SDK/Wrapper para o Telegram.
 	"""
 	def __init__(self):
-		self.token = os.environ['SECRET_KEY'] # Definindo token do bot
+		self.token = "Defina a token do bot aqui"
 		self.apitelegram = f"https://api.telegram.org/bot{self.token}" # Definindo api-telegram-bot
 		self.headers = {'content-type': 'application/json', 'Cache-Control': 'no-cache'} # Definindo headers
 	@staticmethod
 	def sendRequest(url, params=None, headers=None, files=False, post=False):
 		"""
-		Esta função, quando chamada, executará uma requisição na URL fornecida
-		com os argumentos definidos.
-		Nota: Não server somente para trabalhar com a api do Telegram
+		Esta função ajudará você a trabalhar com tudo relacionado à captura de dados da Web
+		E não apenas com a API do Telegram
 		"""
 		try:
-			if (post): #caso precise enviar arquivos, essa condição será usada.
+			if (post): # Caso precise enviar arquivos, essa condição será usada.
 				data = requests.post(url, params=params, headers=headers, files=files, post=post)
 			else:
-				#caso não precise enviar arquivos, essa condição será usada.
+				# Caso não precise enviar arquivos, essa condição será usada.
 				data = requests.get(url, params=params, headers=headers)
-		except Exception as error:
-			print(error); data = False
-
+		except Exception:
+			data = False
 		if (data != False):
 			if (data.status_code == 200): 
 				return dict(success=True, code=data.status_code, response=data.json())
@@ -45,10 +43,10 @@ class Method():
 			então ele irá coletar o que chegar por aqui
 		"""
 		if (strfile != False) and (file != False):
-			#Caso as condições strfile e file, não forem falsas, essa condição será usada
+			# Caso as condições strfile e file, forem verdadeiras, essa condição será usada
 
 			return self.sendRequest(f"{self.apitelegram}/{method}", params=locals()['args'], headers=self.headers, files=dict(strfile=file), post=True)
 		elif (strfile == False) and (file == False):
-			#Caso as condições strfile e file, forem falsas, essa condição será usada
+			# Caso as condições strfile e file, forem falsas, essa condição será usada
 			
 			return self.sendRequest(f"{self.apitelegram}/{method}", params=locals()['args'], headers=self.headers)
