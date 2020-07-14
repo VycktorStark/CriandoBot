@@ -2,8 +2,7 @@
 
 Tema: Manipulação dos métodos da API-TELEGRAM-BOT
 
-
-Para começar, precisamos entender primeiro como a API-TELEGRAM-BOT funciona e, como devemos "conversar com ela"; vamos nessa aula entender como iremos fazer isso onde estarei fragmentando algumas coisas para ficar fácil de entendermos.
+Para começar, precisamos entender como a API-TELEGRAM-BOT funciona e, como devemos "conversar com ela"; vamos nessa aula entender como iremos fazer isso. Estarei fragmentando algumas coisas para ficar fácil o entendimento.
 
 ### Primeiramente, o que é uma API?
 
@@ -11,17 +10,19 @@ Para começar, precisamos entender primeiro como a API-TELEGRAM-BOT funciona e, 
 
 *De modo geral, a API é composta por uma série de funções acessíveis somente por programação, e que permitem utilizar características do software menos evidentes ao utilizador tradicional... ([continuar lendo](https://pt.wikipedia.org/wiki/Interface_de_programa%C3%A7%C3%A3o_de_aplica%C3%A7%C3%B5es))"*
 
-Para entendermos melhor, estarei colocando dentro do contesto que queremos...
+Para entendermos melhor, estarei colocando dentro do contexto que queremos...
 
-Por exemplo, quando falamos sobre o uso da API-TELEGRAM-BOT, estamos dizendo que usaremos a funcionalidade do aplicativo bot para executar funções que poderíamos realizar sendo apenas um usuário comum, mas estamos executando como um bot, por que esse é o padrão para qualquer automação.
+Por exemplo: quando falamos sobre o uso da API-TELEGRAM-BOT, estamos dizendo que usaremos a funcionalidade do aplicativo bot para executar funções que poderíamos realizar sendo apenas um usuário comum, mas estamos executando como um bot, por que esse é o padrão para qualquer automação.
 
 ### Como utilizar API / Como "Conversar" com a API?
 
-No site oficial é apresentado que todas as consultas/"conversas" para a API-TELEGRAM-BOT devem ser enviadas via HTTPS e necessariamente devem ser apresentadas desta maneira: `https://api.telegram.org/bot<token>/METHOD_NAME`. 
+No site oficial é apresentado que todas as consultas/conversas para a API-TELEGRAM-BOT devem ser enviadas via HTTPS e necessariamente devem ser apresentadas desta maneira:
 
-Essas consultas/"conversas" com a API, são chamadas de requisições, essas requisições podem ser enviadas via GET ou POST, desde que respeite todos os parâmetros obrigatórios de cada método.
+`https://api.telegram.org/bot<token>/METHOD_NAME`. 
 
-Vou citar um exemplo de como devemos solicitar os dados da pela api, abaixo estou deixando um link clique para acessar, ao carregar a página troque `<token>` pela sua token que te instrui a criar na introdução.
+Essas consultas/conversas com a API, são chamadas de requisições, essas requisições podem ser enviadas via GET ou POST, desde que respeite todos os parâmetros obrigatórios de cada método.
+
+Vou citar um exemplo de como devemos solicitar os dados da pela API. Abaixo estou deixando um link, clique para acessar. Ao carregar a página troque `<token>` pela sua token que te instrui a criar na introdução.
 
 ##### Exemplo:
 `link:` [https://api.telegram.org/bot<token>/getMe](https://api.telegram.org/bot<token>/getMe)
@@ -43,13 +44,13 @@ Vou citar um exemplo de como devemos solicitar os dados da pela api, abaixo esto
 }
 ```
 
-Pronto, acabamos de enviar uma requisição HTTP via GET a API-TELEGRAM-BOT, porém não iremos acessar sempre nosso navegador para enviar uma requisição, certo? e agora que a programação entra
+Pronto, acabamos de enviar uma requisição HTTP via GET à API-TELEGRAM-BOT. Porém não iremos acessar sempre nosso navegador para enviar uma requisição? É agora que a programação entra.
 
-Precisamos criar uma função para fazer essa conversação para gente sem a necessidade de abrirmos um pagina toda vez que precisarmos enviar uma requisição.
+Precisamos criar uma função para fazer essa conversação, sem a necessidade de abrirmos uma página toda vez que precisarmos enviar uma requisição.
 
-Vamos lá, precisamos primeiro definir uma lib para trabalharmos, vou usar a lib `requests` do python, por experiencia eu vou trabalhar com class porque acho melhor para desenvolver o que preciso, mas você pode criar funções, como disse na introdução o objetivo desse projeto não é programação, prosseguindo:
+Vamos lá! Precisamos primeiro definir uma lib para trabalharmos. Vou usar a lib `requests` do python, por experiência eu vou trabalhar com class porque acho melhor para desenvolver o que preciso. Mas você pode criar funções, como disse na introdução o objetivo desse projeto não é programação, prosseguindo:
 
-Primeiro instalarmos a lib em nosso terminal, então abra o terminal e execute:`sudo pip3 install requests`, logo em seguida abra um editor de texto e digite:
+Primeiro, instalaremos a lib em nosso terminal, então abra o terminal e execute: `sudo pip3 install requests`, logo em seguida abra um editor de texto e digite:
 
 ```python
 import requests
@@ -60,9 +61,9 @@ def sendRequest(url, params=None, headers=None, files=False, post=False):
 		print(error)
 ```
 
-Nessa função acima estamos tratando apenas a utilização da lib `requests`, com essa função já conseguimos executar requisições em qualquer HTTP, mas o objetivo é trabalhar com a API-TELEGRAM-BOT, ou seja, precisa inserir dados para comunicarmos com ela, o que precisamos para isso?
+Na função acima, estamos tratando apenas a utilização da lib `requests`. Com essa função, conseguiremos executar requisições em qualquer HTTP, mas o objetivo é trabalhar com a API-TELEGRAM-BOT, ou seja, precisa inserir dados para comunicarmos com ela, o que precisamos para isso?
 
-Sabemos que a API obrigatoriamente precisa que informarmos sempre a token do bot e que ela suporta quatro maneiras de passar parâmetros para os métodos, sendo:
+Sabemos que a API obrigatoriamente precisa que informemos sempre a token do bot e que ela suporta quatro maneiras de passar parâmetros para os métodos, sendo:
 
 ```Plain Text
     String de consulta da URL (que fizemos logo acima pelo navegador)
@@ -71,7 +72,7 @@ Sabemos que a API obrigatoriamente precisa que informarmos sempre a token do bot
     multipart/form-data (recomendado usar para fazer upload de arquivos)
 ```
 
-Com base nisso, precisamos definir a token do bot, os cabeçalhos (headers) para passarmos parâmetros para os métodos e por fim uma maneira de usar a função `sendRequest`, estou deixando abaixo a solução que fiz para isso com comentário.
+Com base nisso, precisamos definir a token do bot e os cabeçalhos (headers), para passarmos parâmetros para os métodos e por fim uma maneira de usar a função `sendRequest`. Estou deixando abaixo um exemplo que fiz com alguns comentários.
 
 ```python
 import os, requests, json
@@ -117,6 +118,7 @@ class Method():
 			file: quando for necessario enviar um arquivo, o arquivo será indexado aqui
 			args: para os demais argumentos, depende muito do method
 			então ele irá coletar o que chegar por aqui
+
 		"""
 		if (strfile != False) and (file != False):
 			# Caso as condições strfile e file, forem verdadeiras, essa condição será usada
@@ -127,10 +129,11 @@ class Method():
 			
 			return self.sendRequest(f"{self.apitelegram}/{method}", params=locals()['args'], headers=self.headers)
 ```
-Não vou entrar em muitos detalhes, pois não é o objetivo desta aula, porém eu quero que você entenda como o funcionamento do código acima, então estou deixando alguns exemplos abaixo sobre como usá-lo
+Não vou entrar em muitos detalhes, pois não é o objetivo desta aula, porém eu quero que você entenda o funcionamento do código acima, então estou deixando alguns exemplos abaixo sobre como usá-lo
 
 Orientações recomendadas:
-- *Defina sua token do bot no local informado dentro do código e  salve o arquivo como:* `method.py`:
+
+- *Defina sua token do bot no local informado dentro do código e salve o arquivo como:* `method.py`:
 - *Abra seu terminal e navegue até a pasta em que o arquivo foi salvo e execute:* `python3`;
 - *Siga os exemplos abaixo para executar os testes:*
 
@@ -167,4 +170,4 @@ finally:
 
 Chegamos no fim desta aula, entendemos nessa aula como uma API funciona e como conversar com ela, aplicando isso no nosso objetivo.
 
-Estarei deixando o arquivo que foi criado nessa aula na pasta: **Projeto**, pois usaremos muito esse arquivo daqui para frente.
+Estarei deixando o arquivo que foi criado nessa aula na pasta: Projeto, pois usaremos muito esse arquivo daqui para frente
