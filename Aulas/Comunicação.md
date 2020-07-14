@@ -4,7 +4,7 @@ Tema: Comunicação com [API-TELEGRAM-BOT](https://core.telegram.org/bots/api), 
 
 A comunicação entre seu projeto com a [API-TELEGRAM-BOT](https://core.telegram.org/bots/api) é extremamente importante. Precisamos entender como esta comunicação funciona, para que possamos criar nossos projetos. Precisamos saber que ela é dividida em duas partes: A primeira enviando dados e a outra recebendo dados.
 
-Na aula inicial, vimos como criar uma maneira de tratar a primeira parte dessa comunicação. Enviando mensagens, arquivos e manipulando todo e qualquer método da [API-TELEGRAM-BOT](https://core.telegram.org/bots/api); Agora precisamos entender a segunda parte:
+Na [aula inicial](https://github.com/VycktorStark/CriandoBOT/blob/master/Aulas/Manipula%C3%A7%C3%A3o%20da%20API-TELEGRAM-BOT.md), vimos como criar uma maneira de tratar a primeira parte dessa comunicação. Enviando mensagens, arquivos e manipulando todo e qualquer método da [API-TELEGRAM-BOT](https://core.telegram.org/bots/api); Agora precisamos entender a segunda parte:
 
 Recebimento de dados: Quando um usuário executa alguma ação no bot, ele espera por uma resposta. E para responder, precisamos saber o que é e quais são os dados dessa ação.
 

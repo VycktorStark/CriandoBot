@@ -19,3 +19,5 @@ Primeiro, precisamos entender como a [API para bots](https://core.telegram.org/b
 E o mais importante, possuir uma token bot. Caso não tenha precisará criar usando o [@BotFather](https://t.me/BotFather), caso tenha dúvida de como criar veja informações relacionadas sobre isso na página de [Perguntas frequentes sobre robôs](https://core.telegram.org/bots/faq#what-messages-will-my-bot-get).
 
 Nota: Usarei Python3 algumas vezes neste projeto, pois é uma linguagem fácil e provavelmente não causará dificuldades no desenvolvimento de algum bot. Enfatizo que o objetivo deste projeto não é ensinar programação, e sim, ensinar como desenvolver um bot sem usar um Framework/SDK/Wrapper desenvolvidos para o Telegram. Neste projeto, você entenderá toda a teoria por trás do processo de criação.
+
+#### [Iniciar aulas >>](https://github.com/VycktorStark/CriandoBOT/blob/master/Aulas/Manipula%C3%A7%C3%A3o%20da%20API-TELEGRAM-BOT.md)

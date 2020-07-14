@@ -1,8 +1,8 @@
 # Aula teórica - Piloto
 
-Tema: Manipulação dos métodos da API-TELEGRAM-BOT
+Tema: Manipulação dos métodos da [API-TELEGRAM-BOT](https://core.telegram.org/bots/api) 
 
-Para começar, precisamos entender como a API-TELEGRAM-BOT funciona e, como devemos "conversar com ela"; vamos nessa aula entender como iremos fazer isso. Estarei fragmentando algumas coisas para ficar fácil o entendimento.
+Para começar, precisamos entender como a [API-TELEGRAM-BOT](https://core.telegram.org/bots/api)  funciona e, como devemos "conversar com ela"; vamos nessa aula entender como iremos fazer isso. Estarei fragmentando algumas coisas para ficar fácil o entendimento.
 
 ### Primeiramente, o que é uma API?
 
@@ -12,11 +12,11 @@ Para começar, precisamos entender como a API-TELEGRAM-BOT funciona e, como deve
 
 Para entendermos melhor, estarei colocando dentro do contexto que queremos...
 
-Por exemplo: quando falamos sobre o uso da API-TELEGRAM-BOT, estamos dizendo que usaremos a funcionalidade do aplicativo bot para executar funções que poderíamos realizar sendo apenas um usuário comum, mas estamos executando como um bot, por que esse é o padrão para qualquer automação.
+Por exemplo: quando falamos sobre o uso da [API-TELEGRAM-BOT](https://core.telegram.org/bots/api) , estamos dizendo que usaremos a funcionalidade do aplicativo bot para executar funções que poderíamos realizar sendo apenas um usuário comum, mas estamos executando como um bot, por que esse é o padrão para qualquer automação.
 
 ### Como utilizar API / Como "Conversar" com a API?
 
-No site oficial é apresentado que todas as consultas/conversas para a API-TELEGRAM-BOT devem ser enviadas via HTTPS e necessariamente devem ser apresentadas desta maneira:
+No site oficial é apresentado que todas as consultas/conversas para a [API-TELEGRAM-BOT](https://core.telegram.org/bots/api)  devem ser enviadas via HTTPS e necessariamente devem ser apresentadas desta maneira:
 
 `https://api.telegram.org/bot<token>/METHOD_NAME`. 
 
@@ -44,7 +44,7 @@ Vou citar um exemplo de como devemos solicitar os dados da pela API. Abaixo esto
 }
 ```
 
-Pronto, acabamos de enviar uma requisição HTTP via GET à API-TELEGRAM-BOT. Porém não iremos acessar sempre nosso navegador para enviar uma requisição? É agora que a programação entra.
+Pronto, acabamos de enviar uma requisição HTTP via GET à [API-TELEGRAM-BOT](https://core.telegram.org/bots/api) . Porém não iremos acessar sempre nosso navegador para enviar uma requisição? É agora que a programação entra.
 
 Precisamos criar uma função para fazer essa conversação, sem a necessidade de abrirmos uma página toda vez que precisarmos enviar uma requisição.
 
@@ -61,7 +61,7 @@ def sendRequest(url, params=None, headers=None, files=False, post=False):
 		print(error)
 ```
 
-Na função acima, estamos tratando apenas a utilização da lib `requests`. Com essa função, conseguiremos executar requisições em qualquer HTTP, mas o objetivo é trabalhar com a API-TELEGRAM-BOT, ou seja, precisa inserir dados para comunicarmos com ela, o que precisamos para isso?
+Na função acima, estamos tratando apenas a utilização da lib `requests`. Com essa função, conseguiremos executar requisições em qualquer HTTP, mas o objetivo é trabalhar com a [API-TELEGRAM-BOT](https://core.telegram.org/bots/api) , ou seja, precisa inserir dados para comunicarmos com ela, o que precisamos para isso?
 
 Sabemos que a API obrigatoriamente precisa que informemos sempre a token do bot e que ela suporta quatro maneiras de passar parâmetros para os métodos, sendo:
 
@@ -171,3 +171,5 @@ finally:
 Chegamos no fim desta aula, entendemos nessa aula como uma API funciona e como conversar com ela, aplicando isso no nosso objetivo.
 
 Estarei deixando o arquivo que foi criado nessa aula na pasta: Projeto, pois usaremos muito esse arquivo daqui para frente
+
+[Próxima aula >>](https://github.com/VycktorStark/CriandoBOT/blob/master/Aulas/Comunica%C3%A7%C3%A3o.md)
