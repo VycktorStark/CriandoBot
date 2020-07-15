@@ -77,18 +77,18 @@
             <code>resultado:</code>
         </p>
         <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
-        <span class="dt">&quot;ok&quot;</span><span class="fu">:</span><span class="kw">true</span><span class="fu">,</span>
-        <span class="dt">&quot;result&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-          <span class="dt">&quot;id&quot;</span><span class="fu">:</span><span class="dv">523403928</span><span class="fu">,</span>
-          <span class="dt">&quot;is_bot&quot;</span><span class="fu">:</span><span class="kw">true</span><span class="fu">,</span>
-          <span class="dt">&quot;first_name&quot;</span><span class="fu">:</span>
-          <span class="st">&quot;Nome do seu bot&quot;</span><span class="fu">,</span>
-          <span class="dt">&quot;username&quot;</span><span class="fu">:</span><span class="st">&quot;Nomedoseubot&quot;</span><span class="fu">,</span>
-          <span class="dt">&quot;can_join_groups&quot;</span><span class="fu">:</span><span class="kw">true</span><span class="fu">,</span>
-          <span class="dt">&quot;can_read_all_group_messages&quot;</span><span class="fu">:</span><span class="kw">false</span><span class="fu">,</span>
-          <span class="dt">&quot;supports_inline_queries&quot;</span><span class="fu">:</span><span class="kw">false</span>
-          <span class="fu">}</span>
-        <span class="fu">}</span></code></pre></div>
+<span class="dt">&quot;ok&quot;</span><span class="fu">:</span><span class="kw">true</span><span class="fu">,</span>
+<span class="dt">&quot;result&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+  <span class="dt">&quot;id&quot;</span><span class="fu">:</span><span class="dv">523403928</span><span class="fu">,</span>
+  <span class="dt">&quot;is_bot&quot;</span><span class="fu">:</span><span class="kw">true</span><span class="fu">,</span>
+  <span class="dt">&quot;first_name&quot;</span><span class="fu">:</span>
+  <span class="st">&quot;Nome do seu bot&quot;</span><span class="fu">,</span>
+  <span class="dt">&quot;username&quot;</span><span class="fu">:</span><span class="st">&quot;Nomedoseubot&quot;</span><span class="fu">,</span>
+  <span class="dt">&quot;can_join_groups&quot;</span><span class="fu">:</span><span class="kw">true</span><span class="fu">,</span>
+  <span class="dt">&quot;can_read_all_group_messages&quot;</span><span class="fu">:</span><span class="kw">false</span><span class="fu">,</span>
+  <span class="dt">&quot;supports_inline_queries&quot;</span><span class="fu">:</span><span class="kw">false</span>
+  <span class="fu">}</span>
+<span class="fu">}</span></code></pre></div>
 
 
         <p>
@@ -105,68 +105,76 @@
         </p>
 
         <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> requests
-        <span class="kw">def</span> sendRequest(url, params<span class="op">=</span><span class="va">None</span>, headers<span class="op">=</span><span class="va">None</span>, files<span class="op">=</span><span class="va">False</span>, post<span class="op">=</span><span class="va">False</span>):
-            <span class="cf">try</span>:
-                requests.get(url, params<span class="op">=</span>params, headers<span class="op">=</span>headers, files<span class="op">=</span>files, post<span class="op">=</span>post)
-            <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> error:
-                <span class="bu">print</span>(error)</code></pre></div>
-        <p>Na função acima, estamos tratando apenas a utilização da lib <code>requests</code>. Com essa função, conseguiremos executar requisições em qualquer HTTP, mas o objetivo é trabalhar com a <a href="https://core.telegram.org/bots/api">API-TELEGRAM-BOT</a> , ou seja, precisa inserir dados para comunicarmos com ela, o que precisamos para isso?</p>
-        <p>Sabemos que a API obrigatoriamente precisa que informemos sempre a token do bot e que ela suporta quatro maneiras de passar parâmetros para os métodos, sendo:</p>
-        <p><code>Plain Text     String de consulta da URL (que fizemos logo acima pelo navegador)     application/x-www-form-urlencoded     application/json (não é recomendado usar para fazer upload de arquivos)     multipart/form-data (recomendado usar para fazer upload de arquivos)</code></p>
-        <p>Com base nisso, precisamos definir a token do bot e os cabeçalhos (headers), para passarmos parâmetros para os métodos e por fim uma maneira de usar a função <code>sendRequest</code>. Estou deixando abaixo um exemplo que fiz com alguns comentários.</p>
+<span class="kw">def</span> sendRequest(url, params<span class="op">=</span><span class="va">None</span>, headers<span class="op">=</span><span class="va">None</span>, files<span class="op">=</span><span class="va">False</span>, post<span class="op">=</span><span class="va">False</span>):
+    <span class="cf">try</span>:
+        requests.get(url, params<span class="op">=</span>params, headers<span class="op">=</span>headers, files<span class="op">=</span>files, post<span class="op">=</span>post)
+    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> error:
+        <span class="bu">print</span>(error)</code></pre></div>
+        <p>
+            Na função acima, estamos tratando apenas a utilização da lib <code>requests</code>. Com essa função, conseguiremos executar requisições em qualquer HTTP, mas o objetivo é trabalhar com a <a href="https://core.telegram.org/bots/api">API-TELEGRAM-BOT</a> , ou seja, precisa inserir dados para comunicarmos com ela, o que precisamos para isso?
+        </p>
+        <p>
+            Sabemos que a API obrigatoriamente precisa que informemos sempre a token do bot e que ela suporta quatro maneiras de passar parâmetros para os métodos, sendo:
+        </p>
+        <p>
+            <code>Plain Text     String de consulta da URL (que fizemos logo acima pelo navegador)     application/x-www-form-urlencoded     application/json (não é recomendado usar para fazer upload de arquivos)     multipart/form-data (recomendado usar para fazer upload de arquivos)</code>
+        </p>
+        <p>
+            Com base nisso, precisamos definir a token do bot e os cabeçalhos (headers), para passarmos parâmetros para os métodos e por fim uma maneira de usar a função <code>sendRequest</code>. Estou deixando abaixo um exemplo que fiz com alguns comentários.
+        </p>
         <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> os, requests, json
-        <span class="kw">class</span> Method():
-            <span class="co">&quot;&quot;&quot;</span>
-        <span class="co">    Este método ajudará você a manipular a API do Telegram facilmente, </span>
-        <span class="co">    porque basicamente ela se comunicará com a API-TELEGRAM-BOT enviando os argumentos necessários</span>
-        <span class="co">    sem a necessidade de escrever muito código ou usar uma Frameworks/SDK/Wrapper para o Telegram.</span>
-        <span class="co">    &quot;&quot;&quot;</span>
-            <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
-                <span class="va">self</span>.token <span class="op">=</span> <span class="st">&quot;Defina a token do bot aqui&quot;</span>
-                <span class="va">self</span>.apitelegram <span class="op">=</span> <span class="ss">f&quot;https://api.telegram.org/bot</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>token<span class="sc">}</span><span class="ss">&quot;</span> <span class="co"># Definindo api-telegram-bot</span>
-                <span class="va">self</span>.headers <span class="op">=</span> {<span class="st">&#39;content-type&#39;</span>: <span class="st">&#39;application/json&#39;</span>, <span class="st">&#39;Cache-Control&#39;</span>: <span class="st">&#39;no-cache&#39;</span>} <span class="co"># Definindo headers</span>
-            <span class="at">@staticmethod</span>
-            <span class="kw">def</span> sendRequest(url, params<span class="op">=</span><span class="va">None</span>, headers<span class="op">=</span><span class="va">None</span>, files<span class="op">=</span><span class="va">False</span>, post<span class="op">=</span><span class="va">False</span>):
-                <span class="co">&quot;&quot;&quot;</span>
-        <span class="co">        Esta função ajudará você a trabalhar com tudo relacionado à captura de dados da Web</span>
-        <span class="co">        E não apenas com a API do Telegram</span>
-        <span class="co">        &quot;&quot;&quot;</span>
-                <span class="cf">try</span>:
-                    <span class="cf">if</span> (post): <span class="co"># Caso precise enviar arquivos, essa condição será usada.</span>
-                        data <span class="op">=</span> requests.post(url, params<span class="op">=</span>params, headers<span class="op">=</span>headers, files<span class="op">=</span>files, post<span class="op">=</span>post)
-                    <span class="cf">else</span>:
-                        <span class="co"># Caso não precise enviar arquivos, essa condição será usada.</span>
-                        data <span class="op">=</span> requests.get(url, params<span class="op">=</span>params, headers<span class="op">=</span>headers)
-                <span class="cf">except</span> <span class="pp">Exception</span>:
-                    data <span class="op">=</span> <span class="va">False</span>
-                <span class="cf">if</span> (data <span class="op">!=</span> <span class="va">False</span>):
-                    <span class="cf">if</span> (data.status_code <span class="op">==</span> <span class="dv">200</span>): 
-                        <span class="cf">return</span> <span class="bu">dict</span>(success<span class="op">=</span><span class="va">True</span>, code<span class="op">=</span>data.status_code, response<span class="op">=</span>data.json())
-                    <span class="cf">else</span>:
-                        <span class="cf">return</span> <span class="bu">dict</span>(success<span class="op">=</span><span class="va">False</span>, code<span class="op">=</span>data.status_code, response<span class="op">=</span>data.json())
-                <span class="cf">else</span>:
-                    <span class="cf">return</span> <span class="bu">dict</span>(success<span class="op">=</span><span class="va">False</span>, code<span class="op">=</span><span class="dv">404</span>, response<span class="op">=</span><span class="va">False</span>)
+<span class="kw">class</span> Method():
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Este método ajudará você a manipular a API do Telegram facilmente, </span>
+<span class="co">    porque basicamente ela se comunicará com a API-TELEGRAM-BOT enviando os argumentos necessários</span>
+<span class="co">    sem a necessidade de escrever muito código ou usar uma Frameworks/SDK/Wrapper para o Telegram.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+        <span class="va">self</span>.token <span class="op">=</span> <span class="st">&quot;Defina a token do bot aqui&quot;</span>
+        <span class="va">self</span>.apitelegram <span class="op">=</span> <span class="ss">f&quot;https://api.telegram.org/bot</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>token<span class="sc">}</span><span class="ss">&quot;</span> <span class="co"># Definindo api-telegram-bot</span>
+        <span class="va">self</span>.headers <span class="op">=</span> {<span class="st">&#39;content-type&#39;</span>: <span class="st">&#39;application/json&#39;</span>, <span class="st">&#39;Cache-Control&#39;</span>: <span class="st">&#39;no-cache&#39;</span>} <span class="co"># Definindo headers</span>
+    <span class="at">@staticmethod</span>
+    <span class="kw">def</span> sendRequest(url, params<span class="op">=</span><span class="va">None</span>, headers<span class="op">=</span><span class="va">None</span>, files<span class="op">=</span><span class="va">False</span>, post<span class="op">=</span><span class="va">False</span>):
+        <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Esta função ajudará você a trabalhar com tudo relacionado à captura de dados da Web</span>
+<span class="co">        E não apenas com a API do Telegram</span>
+<span class="co">        &quot;&quot;&quot;</span>
+        <span class="cf">try</span>:
+            <span class="cf">if</span> (post): <span class="co"># Caso precise enviar arquivos, essa condição será usada.</span>
+                data <span class="op">=</span> requests.post(url, params<span class="op">=</span>params, headers<span class="op">=</span>headers, files<span class="op">=</span>files, post<span class="op">=</span>post)
+            <span class="cf">else</span>:
+                <span class="co"># Caso não precise enviar arquivos, essa condição será usada.</span>
+                data <span class="op">=</span> requests.get(url, params<span class="op">=</span>params, headers<span class="op">=</span>headers)
+        <span class="cf">except</span> <span class="pp">Exception</span>:
+            data <span class="op">=</span> <span class="va">False</span>
+        <span class="cf">if</span> (data <span class="op">!=</span> <span class="va">False</span>):
+            <span class="cf">if</span> (data.status_code <span class="op">==</span> <span class="dv">200</span>): 
+                <span class="cf">return</span> <span class="bu">dict</span>(success<span class="op">=</span><span class="va">True</span>, code<span class="op">=</span>data.status_code, response<span class="op">=</span>data.json())
+            <span class="cf">else</span>:
+                <span class="cf">return</span> <span class="bu">dict</span>(success<span class="op">=</span><span class="va">False</span>, code<span class="op">=</span>data.status_code, response<span class="op">=</span>data.json())
+        <span class="cf">else</span>:
+            <span class="cf">return</span> <span class="bu">dict</span>(success<span class="op">=</span><span class="va">False</span>, code<span class="op">=</span><span class="dv">404</span>, response<span class="op">=</span><span class="va">False</span>)
 
-            <span class="kw">def</span> sendTG(<span class="va">self</span>, method<span class="op">=</span><span class="st">&quot;sendMessage&quot;</span>, strfile<span class="op">=</span><span class="va">False</span>, <span class="bu">file</span><span class="op">=</span><span class="va">False</span>, <span class="op">**</span>args):
-                <span class="co">&quot;&quot;&quot;</span>
-        <span class="co">        Esta função, quando chamada, executará uma requisição </span>
-        <span class="co">        que enviará os argumentos para o API-Telegram-BOT.</span>
-        <span class="co">        Legenda:</span>
-        <span class="co">            method: Nome do method</span>
-        <span class="co">            strfile: quando for necessario enviar um arquivo, nome do arquivo será indexado aqui</span>
-        <span class="co">            file: quando for necessario enviar um arquivo, o arquivo será indexado aqui</span>
-        <span class="co">            args: para os demais argumentos, depende muito do method</span>
-        <span class="co">            então ele irá coletar o que chegar por aqui</span>
+    <span class="kw">def</span> sendTG(<span class="va">self</span>, method<span class="op">=</span><span class="st">&quot;sendMessage&quot;</span>, strfile<span class="op">=</span><span class="va">False</span>, <span class="bu">file</span><span class="op">=</span><span class="va">False</span>, <span class="op">**</span>args):
+        <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        Esta função, quando chamada, executará uma requisição </span>
+<span class="co">        que enviará os argumentos para o API-Telegram-BOT.</span>
+<span class="co">        Legenda:</span>
+<span class="co">            method: Nome do method</span>
+<span class="co">            strfile: quando for necessario enviar um arquivo, nome do arquivo será indexado aqui</span>
+<span class="co">            file: quando for necessario enviar um arquivo, o arquivo será indexado aqui</span>
+<span class="co">            args: para os demais argumentos, depende muito do method</span>
+<span class="co">            então ele irá coletar o que chegar por aqui</span>
 
-        <span class="co">        &quot;&quot;&quot;</span>
-                <span class="cf">if</span> (strfile <span class="op">!=</span> <span class="va">False</span>) <span class="kw">and</span> (<span class="bu">file</span> <span class="op">!=</span> <span class="va">False</span>):
-                    <span class="co"># Caso as condições strfile e file, forem verdadeiras, essa condição será usada</span>
+<span class="co">        &quot;&quot;&quot;</span>
+        <span class="cf">if</span> (strfile <span class="op">!=</span> <span class="va">False</span>) <span class="kw">and</span> (<span class="bu">file</span> <span class="op">!=</span> <span class="va">False</span>):
+            <span class="co"># Caso as condições strfile e file, forem verdadeiras, essa condição será usada</span>
 
-                    <span class="cf">return</span> <span class="va">self</span>.sendRequest(<span class="ss">f&quot;</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>apitelegram<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>method<span class="sc">}</span><span class="ss">&quot;</span>, params<span class="op">=</span><span class="bu">locals</span>()[<span class="st">&#39;args&#39;</span>], headers<span class="op">=</span><span class="va">self</span>.headers, files<span class="op">=</span><span class="bu">dict</span>(strfile<span class="op">=</span><span class="bu">file</span>), post<span class="op">=</span><span class="va">True</span>)
-                <span class="cf">elif</span> (strfile <span class="op">==</span> <span class="va">False</span>) <span class="kw">and</span> (<span class="bu">file</span> <span class="op">==</span> <span class="va">False</span>):
-                    <span class="co"># Caso as condições strfile e file, forem falsas, essa condição será usada</span>
-                    
-                    <span class="cf">return</span> <span class="va">self</span>.sendRequest(<span class="ss">f&quot;</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>apitelegram<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>method<span class="sc">}</span><span class="ss">&quot;</span>, params<span class="op">=</span><span class="bu">locals</span>()[<span class="st">&#39;args&#39;</span>], headers<span class="op">=</span><span class="va">self</span>.headers)</code></pre></div>
+            <span class="cf">return</span> <span class="va">self</span>.sendRequest(<span class="ss">f&quot;</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>apitelegram<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>method<span class="sc">}</span><span class="ss">&quot;</span>, params<span class="op">=</span><span class="bu">locals</span>()[<span class="st">&#39;args&#39;</span>], headers<span class="op">=</span><span class="va">self</span>.headers, files<span class="op">=</span><span class="bu">dict</span>(strfile<span class="op">=</span><span class="bu">file</span>), post<span class="op">=</span><span class="va">True</span>)
+        <span class="cf">elif</span> (strfile <span class="op">==</span> <span class="va">False</span>) <span class="kw">and</span> (<span class="bu">file</span> <span class="op">==</span> <span class="va">False</span>):
+            <span class="co"># Caso as condições strfile e file, forem falsas, essa condição será usada</span>
+            
+            <span class="cf">return</span> <span class="va">self</span>.sendRequest(<span class="ss">f&quot;</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>apitelegram<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>method<span class="sc">}</span><span class="ss">&quot;</span>, params<span class="op">=</span><span class="bu">locals</span>()[<span class="st">&#39;args&#39;</span>], headers<span class="op">=</span><span class="va">self</span>.headers)</code></pre></div>
         <p>
             Não vou entrar em muitos detalhes, pois não é o objetivo desta aula, porém eu quero que você entenda o funcionamento do código acima, então estou deixando alguns exemplos abaixo sobre como usá-lo
         </p>
@@ -185,26 +193,26 @@
         <p>Primeiro exemplo, enviando string (objetos que contém uma cadeia de caracteres):</p>
 
         <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> Method
-        api <span class="op">=</span> Method.Method()
-        api.sendTG(method<span class="op">=</span><span class="st">&quot;getME&quot;</span>)
-        api.sendTG(chat_id<span class="op">=</span><span class="dv">438131290</span>,text<span class="op">=</span><span class="st">&#39;oi&#39;</span>)
-        api.sendTG(method<span class="op">=</span><span class="st">&quot;sendPhoto&quot;</span>, chat_id<span class="op">=</span><span class="dv">438131290</span>, photo<span class="op">=</span><span class="st">&quot;https://img.olhardigital.com.br/uploads/acervo_imagens/2020/04/r4x3/20200423030657_660_495_-_python.jpg&quot;</span>, caption<span class="op">=</span><span class="st">&#39;&lt;b&gt;ping&lt;/b&gt;&#39;</span>, parse_mode<span class="op">=</span><span class="st">&#39;HTML&#39;</span>)</code></pre></div>
+api <span class="op">=</span> Method.Method()
+api.sendTG(method<span class="op">=</span><span class="st">&quot;getME&quot;</span>)
+api.sendTG(chat_id<span class="op">=</span><span class="dv">438131290</span>,text<span class="op">=</span><span class="st">&#39;oi&#39;</span>)
+api.sendTG(method<span class="op">=</span><span class="st">&quot;sendPhoto&quot;</span>, chat_id<span class="op">=</span><span class="dv">438131290</span>, photo<span class="op">=</span><span class="st">&quot;https://img.olhardigital.com.br/uploads/acervo_imagens/2020/04/r4x3/20200423030657_660_495_-_python.jpg&quot;</span>, caption<span class="op">=</span><span class="st">&#39;&lt;b&gt;ping&lt;/b&gt;&#39;</span>, parse_mode<span class="op">=</span><span class="st">&#39;HTML&#39;</span>)</code></pre></div>
         <p>Segundo exemplo, enviando algum tipo de arquivo:</p>
         <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> os, gtts, Method
-        api <span class="op">=</span> Method.Method()
-        <span class="cf">try</span>:
-            AUDIO <span class="op">=</span> gtts.gTTS(cmd[<span class="dv">1</span>], lang<span class="op">=</span><span class="st">&quot;en&quot;</span>)
-            AUDIO.save(<span class="st">&#39;audio.ogg&#39;</span>)
-            AUDIO <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;audio.ogg&#39;</span>, <span class="st">&#39;rb&#39;</span>)
-            api.sendTG(method<span class="op">=</span><span class="st">&quot;sendAudio&quot;</span>, strfile<span class="op">=</span><span class="st">&quot;audio&quot;</span>, <span class="bu">file</span><span class="op">=</span>AUDIO, chat_id<span class="op">=</span><span class="dv">438131290</span>)
-            AUDIO.close()
-        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> error:
-            <span class="bu">print</span>(error)
-        <span class="cf">finally</span>:
-            <span class="cf">try</span>:
-                os.remove(<span class="st">&#39;audio.ogg&#39;</span>)
-            <span class="cf">except</span> <span class="pp">Exception</span>:
-                <span class="cf">pass</span></code></pre></div>
+api <span class="op">=</span> Method.Method()
+<span class="cf">try</span>:
+    AUDIO <span class="op">=</span> gtts.gTTS(cmd[<span class="dv">1</span>], lang<span class="op">=</span><span class="st">&quot;en&quot;</span>)
+    AUDIO.save(<span class="st">&#39;audio.ogg&#39;</span>)
+    AUDIO <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;audio.ogg&#39;</span>, <span class="st">&#39;rb&#39;</span>)
+    api.sendTG(method<span class="op">=</span><span class="st">&quot;sendAudio&quot;</span>, strfile<span class="op">=</span><span class="st">&quot;audio&quot;</span>, <span class="bu">file</span><span class="op">=</span>AUDIO, chat_id<span class="op">=</span><span class="dv">438131290</span>)
+    AUDIO.close()
+<span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> error:
+    <span class="bu">print</span>(error)
+<span class="cf">finally</span>:
+    <span class="cf">try</span>:
+        os.remove(<span class="st">&#39;audio.ogg&#39;</span>)
+    <span class="cf">except</span> <span class="pp">Exception</span>:
+        <span class="cf">pass</span></code></pre></div>
         <p>Chegamos no fim desta aula, entendemos nessa aula como uma API funciona e como conversar com ela, aplicando isso no nosso objetivo.</p>
         <p>Estarei deixando o arquivo que foi criado nessa aula na pasta: Projeto, pois usaremos muito esse arquivo daqui para frente</p>
         <p><a href="https://github.com/VycktorStark/CriandoBOT/blob/master/Aulas/Comunica%C3%A7%C3%A3o.md">Próxima aula &gt;&gt;</a></p>
