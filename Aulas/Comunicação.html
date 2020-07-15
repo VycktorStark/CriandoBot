@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>Criando bot</title>
+        <link rel="stylesheet" href="../stylesheets/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="VycktorStark" />
+        <meta name="keywords" content="Criando bot, bot, API-TELEGRAM-BOT, Telegrambot, fazendo bot" />
+        <meta name="author" content="VycktorStark" />
+        <link rel="shortcut icon" href="../img/bottg01.png">
+        <meta property="og:title" content="Comunicação com API-TELEGRAM-BOT" />
+        <meta property="og:description" content="A comunicação entre seu projeto com a API-TELEGRAM-BOT é extremamente importante. Precisamos entender como esta comunicação funciona, para que possamos criar nossos projetos. Precisamos saber que ela é dividida em duas partes: A primeira enviando dados e a outra recebendo dados.
+
+Na aula inicial, vimos como criar uma maneira de tratar a primeira parte dessa comunicação. Enviando mensagens, arquivos e manipulando todo e qualquer método da API-TELEGRAM-BOT; Agora precisamos entender a segunda parte:
+
+Recebimento de dados: Quando um usuário executa alguma ação no bot, ele espera por uma resposta. E para responder, precisamos saber o que é e quais são os dados dessa ação.
+"/>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <header>
+                <img src="../img/banner.png">
+                    <small>
+                        Criador do Projeto: <a href="https://github.com/VycktorStark">VycktorStark</a>
+                    </small>
+            
+                <h1>Criandobot</h1>
+                    <p>
+                        <a href="https://github.com/VycktorStark/CriandoBOT/blob/master/Aulas/Manipula%C3%A7%C3%A3o%20da%20API-TELEGRAM-BOT.md">
+                            <strong>1º Aula</strong> &mdash; Manipulação dos métodos da API-TELEGRAM-BOT</a>
+                    </br>
+                        <a href="https://github.com/VycktorStark/CriandoBOT/blob/master/Aulas/Comunica%C3%A7%C3%A3o.md">
+                            <strong>2º Aula</strong> &mdash; Comunicação com API-TELEGRAM-BOT</a>
+            </header>
+
+            <section>
+                <h1 id="aula-teórica---comunicação-com-api-telegram-bot">Aula teórica - Comunicação com <a href="https://core.telegram.org/bots/api">API-TELEGRAM-BOT</a></h1>
+            <p>
+                Tema: Comunicação com <a href="https://core.telegram.org/bots/api">API-TELEGRAM-BOT</a>, como receber e responder uma solicitação.
+            </p>
+            <p>
+                A comunicação entre seu projeto com a <a href="https://core.telegram.org/bots/api">API-TELEGRAM-BOT</a> é extremamente importante. Precisamos entender como esta comunicação funciona, para que possamos criar nossos projetos. Precisamos saber que ela é dividida em duas partes: A primeira enviando dados e a outra recebendo dados.
+            </p>
+            <p>
+                Na <a href="https://github.com/VycktorStark/CriandoBOT/blob/master/Aulas/Manipula%C3%A7%C3%A3o%20da%20API-TELEGRAM-BOT.md">aula inicial</a>, vimos como criar uma maneira de tratar a primeira parte dessa comunicação. Enviando mensagens, arquivos e manipulando todo e qualquer método da <a href="https://core.telegram.org/bots/api">API-TELEGRAM-BOT</a>; Agora precisamos entender a segunda parte:
+            </p>
+            <p>
+                Recebimento de dados: Quando um usuário executa alguma ação no bot, ele espera por uma resposta. E para responder, precisamos saber o que é e quais são os dados dessa ação.
+            </p>
+            <h3 id="como-recebemos-dados-da-api-telegram-bot">Como recebemos dados da <a href="https://core.telegram.org/bots/api">API-TELEGRAM-BOT</a>?</h3>
+            <p>
+                De acordo com o site oficial, <a href="https://core.telegram.org/bots/api#getting-updates">há duas maneiras de receber as informações</a>: Por webhook e por long polling.
+            </p>
+            <p>Fique tranquilo, pois iremos abordar essas duas maneiras de forma separada.</p>
+            <hr />
+            <h3 id="long-polling">Long Polling</h3>
+            <h4 id="o-que-é-long-polling">O que é Long Polling?</h4>
+            <p>
+                É uma técnica <a href="https://pt.wikipedia.org/wiki/Comet_(programa%C3%A7%C3%A3o)">comet</a>, que permite que a conexão fique aberta, aguardando uma resposta do servidor, quando a conexão recebe uma resposta, caso seja necessário tratamos ela, logo em seguida ela é fechada (independentemente se houver algo para ser tratado ou não). Depois, essa conexão é reaberta e inicia-se um novo <a href="https://pt.wikipedia.org/wiki/Loop_(programa%C3%A7%C3%A3o)">loop</a>. - <a href="https://rodolfofadino.com.br/usando-long-polling-com-asynccontrollers-a72e15db2f9e">Mais detalhes</a>)
+            </p>
+            <h3 id="trabalhando-com-long-polling">Trabalhando com Long Polling</h3>
+            <p>
+                Para trabalharmos com Long Polling precisamos criar uma função que faça conexão com o método <a href="https://core.telegram.org/bots/api#getupdates">getUpdates</a> para isso usaremos o manipulador de métodos da API que abordamos na aula passada.
+            </p>
+            <p>
+                Nota: O objetivo das aulas não é ensinar programação. No entanto, deixarei um exemplo abaixo, de como devemos criar essa funcionalidade. * Lembre-se de adicionar sua token do bot ao manipulador de métodos.
+            </p>
+            <p>
+                Usarei essa funcionalidade para o Long Polling:
+            </p>
+            <!-- Código exemplo -->
+        <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> Method, json
+<span class="kw">def</span> longpolling():
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Essa funcionalidade permitirá que você faça checagem de novas ações e colete os dados,</span>
+<span class="co">    caso houver, ela retornará o que encontrar, caso não tenha nada, ela retornará algo pré-definido</span>
+<span class="co">    isso fará com que o loop não seja interrompido.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    temp <span class="op">=</span> <span class="dv">100</span>
+    <span class="cf">while</span> <span class="va">True</span>:
+        data <span class="op">=</span> api.sendTG(method<span class="op">=</span><span class="st">&quot;getUpdates&quot;</span>, offset<span class="op">=</span>temp, timeout<span class="op">=</span><span class="bu">int</span>(temp<span class="op">+</span><span class="dv">1</span>), allowd_updates<span class="op">=</span><span class="st">&#39;message&#39;</span>)
+        data <span class="op">=</span> data[<span class="st">&quot;response&quot;</span>] 
+        <span class="cf">if</span> <span class="bu">len</span>(data[<span class="st">&quot;result&quot;</span>]) <span class="op">==</span> <span class="dv">0</span>:
+            resp <span class="op">=</span> json.dumps(<span class="bu">dict</span>(ping<span class="op">=</span><span class="st">&#39;pong&#39;</span>)) <span class="co">#Estou definido algo para retorna, caso não encontre resultados</span>
+        <span class="cf">elif</span> (<span class="st">&quot;result&quot;</span> <span class="kw">in</span> data):
+            temp  <span class="op">=</span> <span class="bu">int</span>(data[<span class="st">&#39;result&#39;</span>][<span class="dv">0</span>][<span class="st">&#39;update_id&#39;</span>]  <span class="op">+</span> <span class="dv">1</span>) <span class="co">#Aumentando o tempo</span>
+            resp <span class="op">=</span> data[<span class="st">&#39;result&#39;</span>][<span class="dv">0</span>]
+        <span class="cf">return</span> resp</code></pre></div>
+        <!-- Código exemplo end-->
+        <p>Agora, precisamos tratar o que foi retornado. Então, criaremos algo para responder.</p>
+        <!-- Código exemplo -->
+        <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> Method,json
+api <span class="op">=</span> Method.Method()
+<span class="kw">def</span> handler(vetor):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Essa função receberá eventos, porém só irá fazer o tratamento dos evento que possuam a chave: &quot;message&quot;; no vetor;  </span>
+<span class="co">    caso seja encontrado essa chave, responderá com a palavra: PONG</span>
+<span class="co">    Nota: os retornos de resposta são apenas exemplos, você pode alterar ou adicionar da maneira que preferir.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    <span class="cf">if</span> (<span class="st">&quot;message&quot;</span> <span class="kw">in</span> vetor):
+        msg <span class="op">=</span> vetor[<span class="st">&quot;message&quot;</span>]
+        <span class="cf">if</span> (<span class="st">&#39;text&#39;</span> <span class="kw">in</span> msg):
+            api.sendTG(chat_id<span class="op">=</span>msg[<span class="st">&#39;chat&#39;</span>][<span class="st">&#39;id&#39;</span>], text<span class="op">=</span><span class="st">&#39;PONG&#39;</span>)</code></pre></div>
+                    <!-- Código exemplo end-->
+
+        <p>
+            Ok, vamos unificar as duas funções para trabalharem no mesmo script.
+        </p>
+        <!-- Código exemplo -->
+        <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> Method,json
+api <span class="op">=</span> Method.Method()
+
+<span class="kw">def</span> longpolling():
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Essa funcionalidade permitirá que você faça checagem de novas ações e colete os dados,</span>
+<span class="co">    caso houver, ela retornará o que encontrar, caso não tenha nada, ela retornará algo pré-definido</span>
+<span class="co">    isso fará com que o loop não seja interrompido.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    temp <span class="op">=</span> <span class="dv">100</span>
+    <span class="cf">while</span> <span class="va">True</span>:
+        data <span class="op">=</span> api.sendTG(method<span class="op">=</span><span class="st">&quot;getUpdates&quot;</span>, offset<span class="op">=</span>temp, timeout<span class="op">=</span><span class="bu">int</span>(temp<span class="op">+</span><span class="dv">1</span>), allowd_updates<span class="op">=</span><span class="st">&#39;message&#39;</span>)
+        data <span class="op">=</span> data[<span class="st">&quot;response&quot;</span>] 
+        <span class="cf">if</span> <span class="bu">len</span>(data[<span class="st">&quot;result&quot;</span>]) <span class="op">==</span> <span class="dv">0</span>:
+            resp <span class="op">=</span> json.dumps(<span class="bu">dict</span>(ping<span class="op">=</span><span class="st">&#39;pong&#39;</span>)) <span class="co">#Estou definido algo para retorna, caso não encontre resultados</span>
+        <span class="cf">elif</span> (<span class="st">&quot;result&quot;</span> <span class="kw">in</span> data):
+            temp  <span class="op">=</span> <span class="bu">int</span>(data[<span class="st">&#39;result&#39;</span>][<span class="dv">0</span>][<span class="st">&#39;update_id&#39;</span>]  <span class="op">+</span> <span class="dv">1</span>) <span class="co">#Aumentando o tempo</span>
+            resp <span class="op">=</span> data[<span class="st">&#39;result&#39;</span>][<span class="dv">0</span>]
+        handler(resp)
+<span class="kw">def</span> handler(vetor):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Essa função receberá eventos, porém só irá fazer o tratamento dos evento que possuam a chave: &quot;message&quot;; no vetor;  </span>
+<span class="co">    caso seja encontrado essa chave, responderá com a palavra: PONG</span>
+<span class="co">    Nota: os retornos de resposta são apenas exemplos, você pode alterar ou adicionar da maneira que preferir.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    <span class="cf">if</span> (<span class="st">&quot;message&quot;</span> <span class="kw">in</span> vetor):
+        <span class="cf">if</span> (<span class="st">&#39;text&#39;</span> <span class="kw">in</span> vetor[<span class="st">&quot;message&quot;</span>]):
+            api.sendTG(chat_id<span class="op">=</span>vetor[<span class="st">&quot;message&quot;</span>][<span class="st">&#39;chat&#39;</span>][<span class="st">&#39;id&#39;</span>], text<span class="op">=</span><span class="st">&#39;PONG&#39;</span>)
+
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
+    <span class="cf">try</span>:
+        <span class="bu">print</span>(<span class="st">&quot;Iniciando o bot&quot;</span>)
+        longpolling() <span class="co">#Chamando a função para iniciar o long polling</span>
+    <span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>: <span class="co">#Caso vocÊ execute: CTRL C</span>
+        <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Encerrando o bot&quot;</span>)</code></pre></div>
+        <!-- Código exemplo end-->
+
+        <p>
+            Pronto, já temos o nosso bot rodando via polling e respondendo todos os evento com a chave &quot;message&quot;, em outras aulas criaremos novos recursos.
+        </p>
+        <hr />
+        <h3 id="webhook">Webhook</h3>
+        <h4 id="o-que-é-webhook">O que é Webhook?</h4>
+        <p>
+            Webhooks são retornos de chamada HTTP e/ou HTTPS em seu servidor web, esse sistema possui uma flexibilidade para integrar fluxo para essas chamadas de maneira que conseguimos tratar cada chamada que recebemos, sendo ele um sistema impressionantemente simples de implementar em qualquer linguagem de programação. - <a href="https://pt.wikipedia.org/wiki/Webhook">Mais detalhes</a>
+        </p>
+        <h3 id="trabalhando-com-webhook">Trabalhando com Webhook</h3>
+        <p>
+            Basicamente, quando definimos para a <a href="https://core.telegram.org/bots/api">API-TELEGRAM-BOT</a> que iremos receber todas as novas requisições por webhook, o próprio Telegram encarrega-se de fazer chamadas carregando informações das ações executadas pelo usuários em nosso servidor web, restando apenas tratar essas informações e, para isso devemos subir um servidor web em nossa máquina e montar uma função para manipular as chamadas recebidas, mais uma vez usaremos o script que criamos na aula passada.
+        </p>
+        <p>
+            Nota: O objetivo das aulas não é ensinar programação. No entanto, deixarei um exemplo abaixo de como devemos criar essa funcionalidade. Lembre-se de adicionar sua token do bot ao manipulador de métodos. Falando sobre subir um servidor web, fique tranquilo, você pode usar o <a href="https://ngrok.com/">ngrok</a> (Inclusive, nessa aula iremos usá-lo).
+        </p>
+        <p>
+            Primeiramente, precisamos deixar nosso servidor web online, <a href="https://ngrok.com/download">clique aqui</a> e, siga as instruções para fazer download do arquivo e descompactá-lo, agora com o arquivo descompactado, abra seu terminal na pasta onde ele está e execute: ngrok http 8443, ele vai gerar um link com HTTP e HTTPS, minimize o terminal e deixe rodando em segundo plano.
+        </p>
+        <p>
+            Agora vamos criar o nosso script para manipular as chamadas recebidas, usaremos a biblioteca <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> uma vez que na minha opinião é a melhor para trabalharmos chamadas recebidas. Abaixo um exemplo de uso dessa biblioteca.
+        </p>
+
+        <!-- Código exemplo -->
+        <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> flask, Method, json
+api <span class="op">=</span> Method.Method()
+app <span class="op">=</span> flask.Flask(<span class="va">__name__</span>)
+
+<span class="at">@app.errorhandler</span>(<span class="dv">404</span>)
+<span class="kw">def</span> server_error(errorhandler):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Se ocorrer algum erro com o código 404, a função abaixo será executada,</span>
+<span class="co">    onde retornaremos o status 200 para eliminar toda e qualquer solicitação!</span>
+
+<span class="co">    Porque? o webhook cria um tipo de loop, onde sempre repetirá a solicitação até seja tratada como status 200,</span>
+<span class="co">    isto é, ele só encerra o loop quando recebe uma mensagem bem-sucedida de que, por padrão, possui o status 200,</span>
+<span class="co">    Basicamente, isso resolverá o problema!</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    <span class="cf">return</span> flask.Response(status<span class="op">=</span><span class="dv">200</span>)
+
+<span class="at">@app.before_request</span>
+<span class="kw">def</span> handler():
+    <span class="cf">if</span> (flask.request.method <span class="op">==</span> <span class="st">&#39;GET&#39;</span>) <span class="kw">and</span> (flask.request.path <span class="op">==</span> <span class="st">&quot;/webhookstart&quot;</span>): 
+        <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        A partir daqui ele será lido apenas se o método de solicitação for &quot;GET&quot; e, </span>
+<span class="co">        se o caminho for igual a &quot;/webhookstart&quot;, se essas variáveis ​​forem verdadeiras, esse script </span>
+<span class="co">        executará uma funcionalidade na API-TELEGRAM-BOT que fará com que a host seja reconhecida pelo flask</span>
+<span class="co">        e, receba novos eventos do bot, ou seja, todas as novas solicitações serão enviadas apenas para o host detectável pelo &quot;flask&quot;</span>
+<span class="co">        Nota: Caso esteja usando o ngrok não se preocupe em ter que alterar o HTTPS no código, </span>
+<span class="co">        quando você executar o ngrok, ele gerará um link HTTPS, certo? acesse ele e adicione no final /webhookstart</span>
+<span class="co">        exemplo: gerou o link: &quot;https://232ih3h.ngrok.com&quot;, então você deverá acessar o link  https://232ih3h.ngrok.com/webhookstart</span>
+<span class="co">        &quot;&quot;&quot;</span>
+        r <span class="op">=</span> api.sendTG(method<span class="op">=</span><span class="st">&quot;setWebhook&quot;</span>, url<span class="op">=</span><span class="ss">f&quot;</span><span class="sc">{</span>flask<span class="sc">.</span>request<span class="sc">.</span>host<span class="sc">}</span><span class="ss">/webhook&quot;</span>, max_connections<span class="op">=</span><span class="dv">1</span>, allowd_updates<span class="op">=</span><span class="st">&#39;message&#39;</span>)
+        <span class="cf">return</span> Response(response<span class="op">=</span>r[<span class="st">&quot;response&quot;</span>][<span class="st">&#39;description&#39;</span>], status<span class="op">=</span><span class="dv">200</span>)
+
+    <span class="cf">if</span> (flask.request.method <span class="op">==</span> <span class="st">&#39;POST&#39;</span>) <span class="kw">and</span> (flask.request.path <span class="op">==</span> <span class="st">&quot;/webhook&quot;</span>):
+        <span class="co">&quot;&quot;&quot;</span>
+<span class="co">        A partir daqui será lido apenas se o método de solicitação for &quot;POST&quot; (padrão das chamadas do Telegram)</span>
+<span class="co">        e, se o caminho for igual a &quot;/webhook&quot;, se essas variáveis ​​forem verdadeiras, o script irár ler os eventos,</span>
+<span class="co">        caso haja um evento com a chave: &quot;messsage&quot;; ele responderá com a palavra: PONG</span>
+<span class="co">        Estou usando essa palavra apenas para saber que o script está funcionando, você poderá usar outra coisa</span>
+<span class="co">        &quot;&quot;&quot;</span>
+        vetor <span class="op">=</span> flask.request.get_json(silent<span class="op">=</span><span class="va">True</span>, force<span class="op">=</span><span class="va">True</span>) <span class="co"># lendo os eventos recebido pela chamada</span>
+        <span class="cf">if</span> (<span class="st">&quot;message&quot;</span> <span class="kw">in</span> vetor):
+            <span class="cf">if</span> (<span class="st">&#39;text&#39;</span> <span class="kw">in</span> vetor[<span class="st">&quot;message&quot;</span>]):
+                api.sendTG(chat_id<span class="op">=</span>vetor[<span class="st">&quot;message&quot;</span>][<span class="st">&#39;chat&#39;</span>][<span class="st">&#39;id&#39;</span>], text<span class="op">=</span><span class="st">&#39;PONG&#39;</span>)
+        <span class="cf">return</span> flask.Response(status<span class="op">=</span><span class="dv">200</span>)
+
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
+  app.run(debug<span class="op">=</span><span class="va">True</span>, port<span class="op">=</span><span class="dv">8443</span>, host<span class="op">=</span><span class="st">&#39;127.0.0.1&#39;</span>) <span class="co">#Running app</span></code></pre></div>
+          <!-- Código exemplo end-->
+
+        <p>
+            Concluímos esta aula, aprendemos como funciona o recebimento de dados para novas ações por meio do long polling e webhook, criamos um script que faz o bot responder a essas novas ações e identifica as informações dela, em breve aprenderemos como usar todos os métodos <a href="https://core.telegram.org/bots/api">API-TELEGRAM-BOT</a>
+        </p>
+        </section>
+        <script src="../javascripts/scale.fix.js"></script>
+    </body>
+</html>
