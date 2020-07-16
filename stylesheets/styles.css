@@ -11,7 +11,6 @@ header {
   height: 500px;
   position:fixed;
   background-color: #f8f8f8;
-  overflow: scroll;
 }
 .logo {
   width:auto;
