@@ -14,13 +14,12 @@ header {
   overflow: scroll;
 }
 .logo {
-  width:260px;
+  width:auto;
 }
 section {
   position: absolute;
   left: 290px;
-  right:-10px;
-  width:auto;
+  width:986px;
   height:auto;
 }
 
