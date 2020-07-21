@@ -15,3 +15,23 @@ function gestureStart() {
     }
   }
 }
+
+var mobileAgents = ['Android', 'iPhone', 'iPad'];
+var agent = navigator.userAgent;
+var data = mobileAgents.find(user => agent.includes(user));
+
+function change() {
+  var header = document.getElementsByTagName('header')[0];
+  header.style.width = '90vw';
+  header.style.position = 'relative';
+
+  var section = document.getElementsByTagName('section')[0];
+  section.style.width = '90vw';
+  section.style.left = '2vw';
+  var height = window.innerHeight > window.innerWidth? Math.floor(window.innerHeight/10): Math.floor(window.innerHeight * 0.5);
+  section.style.marginTop = `${height}px`;
+}
+
+if (data) {
+  change();
+}
