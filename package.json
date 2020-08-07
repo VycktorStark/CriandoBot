@@ -1,0 +1,19 @@
+{
+  "name": "CriandoBot",
+  "version": "0.0.1",
+  "description": "Este projeto visa levar conhecimento aos usuários que estão começando a criar seu primeiro bot para o Telegram",
+  "main": "index.js",
+  "repository": "https://github.com/VycktorStark/CriandoBot.git",
+  "author": "Vycktor Stark",
+  "author website":"Roberto Monteiro",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-pwa": "^1.5.2",
+    "vuepress": "^1.5.2"
+  }
+}
