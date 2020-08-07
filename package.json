@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/VycktorStark/CriandoBot.git",
   "author": "Vycktor Stark",
-  "author website":"Roberto Monteiro",
+  "author website": "Roberto Monteiro",
   "license": "MIT",
   "private": true,
   "scripts": {

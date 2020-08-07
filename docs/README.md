@@ -10,7 +10,6 @@ features:
 - title: O que preciso para criar meu primeiro bot no telegram?
   details: Primeiro, precisamos entender como a API para bots do Telegram funciona, a leitura disso será crucial para entender o que veremos neste projeto. Você também precisará entender um pouco sobre como o Telegram funciona e, consequentemente, ter uma conta no Telegram que será o foco deste projeto. Finalmente, você precisará ter acesso a um terminal (você poderá usar o Termux no android, mas o funcionamento desta aplicação não será o foco deste projeto). E o mais importante, possuir uma token bot. Caso não tenha precisará criar usando o @BotFather, caso tenha dúvida de como criar veja informações relacionadas sobre isso na página de Perguntas frequentes sobre robôs. Usarei Python3 algumas vezes neste projeto, pois é uma linguagem fácil e provavelmente não causará dificuldades no desenvolvimento de algum bot. Enfatizo que o objetivo deste projeto não é ensinar programação, e sim, ensinar como desenvolver um bot sem usar um Framework/SDK/Wrapper desenvolvidos para o Telegram. Neste projeto, você entenderá toda a teoria por trás do processo de criação.
 
-# [Iniciar aulas](https://vycktorstark.github.io/CriandoBot/criandobot/aulas/AULA1.html)
-
 footer: MIT Licensed | Copyright © 2020-present Roberto Monteiro
 ---
+# [Iniciar aulas](https://vycktorstark.github.io/CriandoBot/criandobot/aulas/AULA1.html)
