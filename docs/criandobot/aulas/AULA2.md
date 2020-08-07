@@ -171,6 +171,3 @@ finally:
 Chegamos no fim desta aula, entendemos nessa aula como uma API funciona e como conversar com ela, aplicando isso no nosso objetivo.
 
 Estarei deixando o arquivo que foi criado nessa aula na pasta: Projeto, pois usaremos muito esse arquivo daqui para frente.
-
-footer: MIT Licensed | Copyright © 2020-present Roberto Monteiro
----

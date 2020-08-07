@@ -177,6 +177,3 @@ if __name__ == '__main__':
 ```
 
 Concluímos esta aula, aprendemos como funciona o recebimento de dados para novas ações por meio do long polling e webhook, criamos um script que faz o bot responder a essas novas ações e identifica as informações dela, em breve aprenderemos como usar todos os métodos [API-TELEGRAM-BOT](https://core.telegram.org/bots/api) 
-
-footer: MIT Licensed | Copyright © 2020-present Roberto Monteiro
----
