@@ -1,14 +1,10 @@
 ---
 home: true
-heroText: Aula teórica - Piloto
-tagline: Manipulação dos métodos da API-TELEGRAM-BOT
-
-Para começar, precisamos entender como a API-TELEGRAM-BOT funciona e, como devemos "conversar com ela"; vamos nessa aula entender como iremos fazer isso. Estarei fragmentando algumas coisas para ficar fácil o entendimento.
+heroText: Manipulação dos métodos da API-TELEGRAM-BOT
+tagline: Para começar, precisamos entender como a API-TELEGRAM-BOT funciona e, como devemos "conversar com ela"; vamos nessa aula entender como iremos fazer isso. Estarei fragmentando algumas coisas para ficar fácil o entendimento.
 
 footer: MIT Licensed | Copyright © 2020-present Roberto Monteiro
 ---
-
-
 ### Primeiramente, o que é uma API?
 
 *"API é uma Interface de Programação de Aplicação (pt-BR), cuja sigla API provém do Inglês Application Programming Interface, é um conjunto de rotinas e padrões estabelecidos por um software para a utilização das suas funcionalidades por aplicativos que não pretendem envolver-se em detalhes da implementação do software, mas apenas usar seus serviços.*
