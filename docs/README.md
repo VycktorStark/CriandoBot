@@ -24,4 +24,4 @@ E o mais importante, possuir uma token bot. Caso não tenha precisará criar usa
 Nota: Usarei Python3 algumas vezes neste projeto, pois é uma linguagem fácil e provavelmente não causará dificuldades no desenvolvimento de algum bot. Enfatizo que o objetivo deste projeto não é ensinar programação, e sim, ensinar como desenvolver um bot sem usar um Framework/SDK/Wrapper desenvolvidos para o Telegram. Neste projeto, você entenderá toda a teoria por trás do processo de criação.
 
 
-# [Iniciar aulas](https://vycktorstark.github.io/CriandoBot/criandobot/aulas/AULA1.html)
+# [Iniciar aulas](https://vycktorstark.github.io/CriandoBot/criandobot/aulas/Piloto.html)

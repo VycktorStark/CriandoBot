@@ -1,12 +1,16 @@
-# Aula teórica - Comunicação com [API-TELEGRAM-BOT](https://core.telegram.org/bots/api) 
-
-Tema: Comunicação com [API-TELEGRAM-BOT](https://core.telegram.org/bots/api), como receber e responder uma solicitação.
+---
+home: true
+heroText: Aula teórica - Comunicação com [API-TELEGRAM-BOT](https://core.telegram.org/bots/api) 
+tagline: Tema: Comunicação com [API-TELEGRAM-BOT](https://core.telegram.org/bots/api), como receber e responder uma solicitação.
 
 A comunicação entre seu projeto com a [API-TELEGRAM-BOT](https://core.telegram.org/bots/api) é extremamente importante. Precisamos entender como esta comunicação funciona, para que possamos criar nossos projetos. Precisamos saber que ela é dividida em duas partes: A primeira enviando dados e a outra recebendo dados.
 
 Na aula inicial, vimos como criar uma maneira de tratar a primeira parte dessa comunicação. Enviando mensagens, arquivos e manipulando todo e qualquer método da [API-TELEGRAM-BOT](https://core.telegram.org/bots/api); Agora precisamos entender a segunda parte:
 
 Recebimento de dados: Quando um usuário executa alguma ação no bot, ele espera por uma resposta. E para responder, precisamos saber o que é e quais são os dados dessa ação.
+
+footer: MIT Licensed | Copyright © 2020-present Roberto Monteiro
+---
 
 ### Como recebemos dados da [API-TELEGRAM-BOT](https://core.telegram.org/bots/api)? 
 

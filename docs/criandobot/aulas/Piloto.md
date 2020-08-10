@@ -1,8 +1,13 @@
-# Aula teórica - Piloto
-
-Tema: Manipulação dos métodos da API-TELEGRAM-BOT
+---
+home: true
+heroText: Aula teórica - Piloto
+tagline: Tema: Manipulação dos métodos da API-TELEGRAM-BOT
 
 Para começar, precisamos entender como a API-TELEGRAM-BOT funciona e, como devemos "conversar com ela"; vamos nessa aula entender como iremos fazer isso. Estarei fragmentando algumas coisas para ficar fácil o entendimento.
+
+footer: MIT Licensed | Copyright © 2020-present Roberto Monteiro
+---
+
 
 ### Primeiramente, o que é uma API?
 
@@ -171,3 +176,5 @@ finally:
 Chegamos no fim desta aula, entendemos nessa aula como uma API funciona e como conversar com ela, aplicando isso no nosso objetivo.
 
 Estarei deixando o arquivo que foi criado nessa aula na pasta: Projeto, pois usaremos muito esse arquivo daqui para frente.
+
+# [Próxima aula](https://vycktorstark.github.io/CriandoBot/criandobot/aulas/Comunicacao.html)
