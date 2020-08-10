@@ -173,4 +173,4 @@ Chegamos no fim desta aula, entendemos nessa aula como uma API funciona e como c
 
 Estarei deixando o arquivo que foi criado nessa aula na pasta: Projeto, pois usaremos muito esse arquivo daqui para frente.
 
-# [Próxima aula](https://vycktorstark.github.io/CriandoBot/criandobot/aulas/Comunicacao.html)
+# [Próxima aula](Comunicacao.html)
