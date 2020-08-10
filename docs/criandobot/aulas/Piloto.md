@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: Aula teórica - Piloto
-tagline: Tema: Manipulação dos métodos da API-TELEGRAM-BOT
+tagline: Manipulação dos métodos da API-TELEGRAM-BOT
 
 Para começar, precisamos entender como a API-TELEGRAM-BOT funciona e, como devemos "conversar com ela"; vamos nessa aula entender como iremos fazer isso. Estarei fragmentando algumas coisas para ficar fácil o entendimento.
 
