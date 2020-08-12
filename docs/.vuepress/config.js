@@ -3,11 +3,18 @@ module.exports = {
   description: 'Criador do Projeto: VycktorStark',
   base: '/CriandoBot/',
   themeConfig:{
-  	sidebar: [
-  	['/', 'Inicio'],
-  	['criandobot/aulas/Piloto.html', 'Primeira Aula'],
-  	['criandobot/aulas/Comunicacao.html', 'Segunda Aula'],
-  	]
+    search: false,
+    nav: [
+      {
+        text: 'Aulas',
+        ariaLabel: 'Menu de Aulas',
+        items: [
+          { text: 'Introdução', link: '/' },
+          { text: 'Primeira Aula', link: '/criandobot/aulas/Piloto.html' },
+          { text: 'Segunda Aula', link: '/criandobot/aulas/Comunicacao.html' }
+          ]
+        }
+      ]
   },
   head: [
     ['link', { rel: 'shortcut icon', href: '/assets/img/favicon.ico' }],
