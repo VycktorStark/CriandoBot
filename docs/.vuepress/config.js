@@ -10,13 +10,13 @@ module.exports = {
   	]
   },
   head: [
-    ['link', { rel: 'icon', href: '/img/logo.png' }],
-    ['link', { rel: 'apple-touch-icon', href: '/img/logo.png' }],
-    ['link', { rel: 'manifest', href: '/manifest.json' }],
+    ['link', { rel: 'shortcut icon', href: '/assets/img/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/assets/img/favicon.ico' }],
+    ['link', { rel: 'apple-touch-icon', href: '/assets/img/logo.png' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['link', { rel: 'mask-icon', href: '/img/logo.png', color: '#3eaf7c' }],
+    ['link', { rel: 'mask-icon', href: '/assets/img/logo.png', color: '#3eaf7c' }],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
   ],
   plugins: [
