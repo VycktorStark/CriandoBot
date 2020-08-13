@@ -1,10 +1,15 @@
 ---
 home: true
-heroText: Criando um bot
-tagline: Este projeto visa levar conhecimento aos usuários que estão começando a criar seu primeiro bot para o Telegram. Pretendo utilizar o mínimo de códigos prontos, para podermos entender como realmente é criar um projeto do zero.
+heroText: null
+tagline: null
+footer: Hosted by GitHub Pages | MIT Licensed | Website Environment by Roberto Monteiro 
 
-footer: MIT Licensed | Copyright © 2020-present Roberto Monteiro
 ---
+
+# Criando um bot
+
+Este projeto visa levar conhecimento aos usuários que estão começando a criar seu primeiro bot para o Telegram. Pretendo utilizar o mínimo de códigos prontos, para podermos entender como realmente é criar um projeto do zero.
+
 ### O Que é um bot?
 
 Bot é um aplicativo de software projetado para simular ações humanas, respeitando padrões predefinidos, como faria um robô. No entanto, sem um chassi ou corpo sendo apenas um script auto-executável.
