@@ -13,7 +13,9 @@ module.exports = {
           { text: 'Primeira Aula', link: '/criandobot/aulas/Piloto.html' },
           { text: 'Segunda Aula', link: '/criandobot/aulas/Comunicacao.html' }
           ]
-        }
+        },
+        { text: 'Projeto', link: 'https://github.com/VycktorStark/CriandoBot/tree/master/Projeto' },
+        { text: 'Patrocinar', link: 'https://app.picpay.com/VycktorStark' }
       ]
   },
   head: [
