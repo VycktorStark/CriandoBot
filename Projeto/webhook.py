@@ -26,7 +26,7 @@ def handler():
 		quando você executar o ngrok, ele gerará um link HTTPS, certo? acesse ele e adicione no final /webhookstart
 		exemplo: gerou o link: "https://232ih3h.ngrok.com", então você deverá acessar o link  https://232ih3h.ngrok.com/webhookstart
 		"""
-		r = api.sendTG(method="setWebhook", url=f"{flask.request.host}/webhook", max_connections=1, allowd_updates='message')
+		r = api.sendTG(method="setWebhook", url=f"{flask.request.host}/webhook", max_connections=1, allowed_updates='message')
 		return Response(response=r["response"]['description'], status=200)
 
 	if (flask.request.method == 'POST') and (flask.request.path == "/webhook"):

@@ -9,7 +9,7 @@ def longpolling():
 	"""
 	temp = 100
 	while True:
-		data = api.sendTG(method="getUpdates", offset=temp, timeout=int(temp+1), allowd_updates='message')
+		data = api.sendTG(method="getUpdates", offset=temp, timeout=int(temp+1), allowed_updates='message')
 		data = data["response"] 
 		if len(data["result"]) == 0:
 			resp = json.dumps(dict(ping='pong')) #Estou definido algo para retorna, caso não encontre resultados
